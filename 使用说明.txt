@@ -1,0 +1,18 @@
+星穹旅驿 · 新手引导插件 分发包 v1.0.0
+
+1) StarInn-1.0.0.jar                    -> 放服务端 plugins/ 目录（不是 mods/），重启 Purpur 1.21.11
+2) resource-pack/StarInnResourcePack.zip -> Java 资源包预成品（与插件运行时生成的同构，pack_format 75）
+3) bedrock/StarInnResourcePack.mcpack    -> 基岩版资源包，双击导入客户端（Geyser 玩家通常无需手动装，服务器自动转换下发）
+4) textures/                             -> 已固化进 jar 的立绘/背景源图（全部 2 的幂、标准 PNG）
+5) dialogues/                            -> 最新台词三件套（wu/chen/an；阵营选择已移交独立阵营插件，
+                                            S5_4 无选项播完即结束，S6/S7 落地台词已删除）
+
+端口：改 plugins/StarInn/config.yml 的 resource-pack.builtin-port（服主端口申请下来后改这里），
+      并在防火墙/安全组放行；基岩玩家需能访问 public-host:builtin-port。
+
+从旧版升级：对话文件只在首次安装时释放，换 jar 不会覆盖 plugins/StarInn/dialogues/ 旧台词；
+请删除旧 wu.yml/chen.yml/an.yml 或改用本包 dialogues/ 内新文件，再 /starinn reload。
+
+换正式立绘：把同名 PNG 放进 plugins/StarInn/textures/，执行 /starinn pack regen 即可，不用重新编译插件。
+
+详见 README.md，三句话上手见 QUICKSTART.md，验收清单见 TESTING.md

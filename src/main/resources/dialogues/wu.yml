@@ -1,0 +1,94 @@
+# ============================================
+# 守灯人·芜 —— 全部台词（共 14 条）
+# 阵营选择已移交独立阵营插件：S5_4 播完即引导结束，不再落地 S6/S7
+# ============================================
+npc:
+  id: wu
+  name: "守灯人·芜"
+  texture: "wu.png"
+  background_default: "bg_inn_dusk.png"
+
+dialogues:
+  - id: S0_1
+    npc: wu
+    expression: default
+    background: inn_dusk
+    text: "醒了？欢迎来到星穹旅驿。"
+
+  - id: S0_2
+    npc: wu
+    expression: default
+    background: inn_dusk
+    text: "我是这里的守灯人，叫芜。守了七十年，两边的人我都不喜欢，但两边都得经过我这道门。"
+
+  - id: S0_3
+    npc: wu
+    expression: serious
+    background: inn_dusk
+    text: "我先告诉你一件事——这里有两个世界。炽壤，和渊域。"
+
+  - id: S0_4
+    npc: wu
+    expression: serious
+    background: inn_dusk
+    text: "它们昼夜相反——炽壤是白天的时候，渊域是黑夜；炽壤天黑了，渊域就天亮了。"
+
+  - id: S0_5
+    npc: wu
+    expression: serious
+    background: inn_dusk
+    text: "时间流速一样，只是完全错开。你在炽壤挖矿的时候，渊域的人正在睡觉；你睡觉的时候，渊域的人正在行动。"
+
+  - id: S0_6
+    npc: wu
+    expression: tired
+    background: inn_dusk
+    text: "怪物？有。它们没有名字，也不知道怕什么。这个以后再跟你说。"
+
+  - id: S0_7
+    npc: wu
+    expression: default
+    background: inn_dusk
+    text: "现在，跟我来。有两个人想见你。"
+
+  - id: S1
+    npc: wu
+    expression: serious
+    background: chirang_day
+    text: "左边这位，是黎明誓约的晨。"
+
+  - id: S3
+    npc: wu
+    expression: serious
+    background: yuanyu_night
+    text: "右边这位，是暮夜同盟的黯。"
+
+  - id: S5_1
+    npc: wu
+    expression: serious
+    background: inn_dusk
+    text: "两边都见过了。现在你自己选。"
+
+  - id: S5_2
+    npc: wu
+    expression: default
+    background: inn_dusk
+    text: "选炽壤，就去找晨。选渊域，就去找黯。"
+
+  - id: S5_3
+    npc: wu
+    expression: tired
+    background: inn_dusk
+    text: "我不多劝。我只说一句——你选的那一边，会告诉你另一边是坏人。他们不全是错的，但也全不是真的。"
+
+  - id: S5_4
+    npc: wu
+    expression: default
+    background: inn_dusk
+    text: "两边都见过了。十分钟后系统会让你正式选，这期间你先自己转转。"
+
+  - id: GREETING
+    npc: wu
+    expression: default
+    background: inn_dusk
+    text: "回来了。你的据点在老地方，有事找自己人。"

@@ -1,0 +1,23 @@
+# ============================================
+# 星穹旅驿 · 新手引导插件 —— 插件元数据
+# ${version} 由构建脚本自动替换
+# ============================================
+name: StarInn
+version: ${version}
+main: com.starinn.StarInn
+api-version: "1.21"
+author: 星穹旅驿团队
+description: 星穹旅驿新手引导插件（单插件融合版，Java/基岩双端）
+
+commands:
+  starinn:
+    description: 星穹旅驿管理命令
+    usage: /starinn <reload|reset|status|pack regen>
+
+permissions:
+  starinn.reload:
+    description: 热加载配置与对话、查看插件状态、/starinn pack regen 重建资源包
+    default: op
+  starinn.reset:
+    description: 重置指定玩家的新手引导进度
+    default: op

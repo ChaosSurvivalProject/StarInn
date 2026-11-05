@@ -1,0 +1,52 @@
+// ============================================================
+// 星穹旅驿 · 新手引导插件 —— Purpur 1.21.11 / Java 21
+// 纯 Bukkit 插件工程：只用 java-library 插件，
+// 编译期依赖 Purpur 官方 API，运行期由服务端提供，零第三方库。
+// ============================================================
+plugins {
+    id 'java-library'
+}
+
+group = 'com.starinn'
+version = plugin_version
+base { archivesName = 'StarInn' }
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+repositories {
+    mavenCentral()
+    // Purpur / Paper 官方仓库（版本与本工程一致：1.21.11）
+    maven { url = 'https://repo.purpurmc.org/snapshots' }
+    maven { url = 'https://repo.papermc.io/repository/maven-public/' }
+}
+
+dependencies {
+    // Purpur API（含 Bukkit/Paper API），仅编译期依赖
+    compileOnly 'org.purpurmc.purpur:purpur-api:1.21.11-R0.1-SNAPSHOT'
+    // SQLite JDBC：仅编译期依赖；运行期由 Purpur 服务端自带的 org.sqlite 驱动提供
+    compileOnly 'org.xerial:sqlite-jdbc:3.53.4.0'
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
+
+processResources {
+    filteringCharset = 'UTF-8'
+    filesMatching('plugin.yml') {
+        expand(version: project.version)
+    }
+}
+
+jar {
+    manifest {
+        attributes(
+            'Implementation-Title': 'StarInn',
+            'Implementation-Version': project.version
+        )
+    }
+}
