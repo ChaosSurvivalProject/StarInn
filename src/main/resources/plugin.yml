@@ -14,10 +14,19 @@ commands:
     description: 星穹旅驿管理命令
     usage: /starinn <reload|reset|status|pack regen>
 
+  sinnupdate:
+    description: StarInn 内置更新管理命令
+    usage: /<command> <check|apply|status>
+    permission: starinn.update
+
 permissions:
   starinn.reload:
     description: 热加载配置与对话、查看插件状态、/starinn pack regen 重建资源包
     default: op
   starinn.reset:
     description: 重置指定玩家的新手引导进度
+    default: op
+
+  starinn.update:
+    description: 检查并应用 StarInn 内置更新（管理员）
     default: op
