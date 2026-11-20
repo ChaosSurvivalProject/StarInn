@@ -28,6 +28,11 @@ import org.bukkit.event.player.PlayerResourcePackStatusEvent;
 import org.bukkit.event.player.PlayerSwapHandItemsEvent;
 import org.bukkit.event.player.PlayerToggleSneakEvent;
 import org.bukkit.plugin.java.JavaPlugin;
+
+// ===== 内置更新模块（mc-autoupdate） =====
+import com.starinn.update.UpdateCommand;
+import com.starinn.update.UpdateConfig;
+import com.starinn.update.UpdateManager;
 import org.bukkit.scheduler.BukkitTask;
 
 import java.io.File;
@@ -222,6 +227,21 @@ public final class StarInn extends JavaPlugin implements Listener, CommandExecut
 
     @Override
     public void onEnable() {
+        // 内置更新：自检一次 + 每周四 12:00 定时；异常只关闭更新功能。
+        try {
+            UpdateConfig uc = new UpdateConfig(
+                "https://raw.githubusercontent.com/ChaosSurvivalProject/StarInn/main/updates/latest.json",
+                getDescription().getVersion(), "1.21", "stable", true, true);
+            UpdateManager um = new UpdateManager(this, uc);
+            um.checkAndSchedule(() -> um.check(false));
+            if (getCommand("sinnupdate") != null) {
+                getCommand("sinnupdate").setExecutor(new UpdateCommand(um));
+                getCommand("sinnupdate").setTabCompleter(new UpdateCommand(um));
+            }
+        } catch (Throwable t) {
+            getLogger().warning("[StarInn] 更新模块初始化失败（不影响主功能）：" + t.getMessage());
+        }
+
         // 释放默认 config.yml（保留全部中文注释）
         saveDefaultConfig();
         selfCheck = new SelfCheck();
